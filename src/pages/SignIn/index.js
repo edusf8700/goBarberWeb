@@ -35,7 +35,7 @@ function SignIn() {
         />
 
         <button type="submit">{loading ? 'Carregando...' : 'Acessar'}</button>
-        <Link to="/register">Ciar conta gratuita</Link>
+        <Link to="/register">Criar conta gratuita</Link>
       </Form>
     </>
   );
