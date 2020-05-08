@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import logo from '~/assets/logo-purple.svg';
 import { Container, Content, Profile } from './styles';
+import Notifications from '~/components/Notifications';
 
 function Header() {
   return (
@@ -13,6 +14,7 @@ function Header() {
           <Link to="/dashboard">DASHBOARD</Link>
         </nav>
         <aside>
+          <Notifications />
           <Profile>
             <div>
               <strong>Eduardo Freitas</strong>
