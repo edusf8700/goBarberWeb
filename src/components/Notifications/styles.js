@@ -27,7 +27,8 @@ export const Badge = styled.button`
     `}
 `;
 
-export const NotificationList = styled.ul`
+export const NotificationList = styled.div`
+  display: ${(props) => (props.visible ? 'block' : 'none')};
   position: absolute;
   width: 260px;
   left: calc(50% - 130px);
@@ -55,7 +56,7 @@ export const Scroll = styled(PerfectScrollbar)`
   padding: 5px 15px;
 `;
 
-export const Notification = styled.li`
+export const Notification = styled.div`
   & + li {
     margin-top: 10px;
     padding-top: 10px;

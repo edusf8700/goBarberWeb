@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { MdNotifications } from 'react-icons/md';
+import { formatDistance, parseISO } from 'date-fns';
+import pt from 'date-fns/locale/pt';
+
+import api from '~/services/api';
 
 import {
   Container,
@@ -10,44 +14,47 @@ import {
 } from './styles';
 
 function Notifications() {
+  const [visible, setVisible] = useState(true);
+  const [notifications, setNotifications] = useState([]);
+
+  useEffect(() => {
+    async function loadNotifications() {
+      const response = await api.get('/notifications');
+
+      const data = response.data.map((notification) => ({
+        ...notification,
+        dateDistance: formatDistance(
+          parseISO(notification.createdAt),
+          new Date(),
+          { addSuffix: true, locale: pt }
+        ),
+      }));
+
+      setNotifications(data);
+    }
+
+    loadNotifications();
+  }, []);
+
+  function handleToggleVisible() {
+    setVisible(!visible);
+  }
+
   return (
     <Container>
-      <Badge hasUnread>
+      <Badge hasUnread onClick={handleToggleVisible}>
         <MdNotifications size={20} color="#7159c1" />
       </Badge>
 
-      <NotificationList>
+      <NotificationList hasUnread visible={visible}>
         <Scroll>
-          <Notification unread>
-            <p>Você tem uma novo agendamento para amanhã</p>
-            <time>Há duas horas</time>
-            <button type="button">Marcar com lida</button>
-          </Notification>
-          <Notification>
-            <p>Você tem uma novo agendamento para amanhã</p>
-            <time>Há duas horas</time>
-            <button type="button">Marcar com lida</button>
-          </Notification>
-          <Notification>
-            <p>Você tem uma novo agendamento para amanhã</p>
-            <time>Há duas horas</time>
-            <button type="button">Marcar com lida</button>
-          </Notification>
-          <Notification>
-            <p>Você tem uma novo agendamento para amanhã</p>
-            <time>Há duas horas</time>
-            <button type="button">Marcar com lida</button>
-          </Notification>
-          <Notification>
-            <p>Você tem uma novo agendamento para amanhã</p>
-            <time>Há duas horas</time>
-            <button type="button">Marcar com lida</button>
-          </Notification>
-          <Notification>
-            <p>Você tem uma novo agendamento para amanhã</p>
-            <time>Há duas horas</time>
-            <button type="button">Marcar com lida</button>
-          </Notification>
+          {notifications.map((notification) => (
+            <Notification unread>
+              <p>{notification.content}</p>
+              <time>{notification.dateDistance}</time>
+              <button type="button">Marcar com lida</button>
+            </Notification>
+          ))}
         </Scroll>
       </NotificationList>
     </Container>
