@@ -19,6 +19,12 @@ export function signUp(name, email, password) {
   };
 }
 
+export function signOut() {
+  return {
+    type: '@auth/SIGN_OUT',
+  };
+}
+
 export function signFailure() {
   return {
     type: '@auth/SIGN_FAILURE',
