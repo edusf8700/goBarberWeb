@@ -43,7 +43,7 @@ export const Time = styled.li`
   strong {
     display: block;
     font-size: 20px;
-    font-weight: normal;
+    font-weight: ${(props) => (props.available ? 'normal' : 'bold')};
     color: ${(props) => (props.available ? '#999' : '#7159c1')};
   }
 
@@ -51,5 +51,6 @@ export const Time = styled.li`
     display: block;
     margin-top: 3px;
     color: #666;
+    font-weight: ${(props) => (props.available ? 'normal' : 'bold')};
   }
 `;
