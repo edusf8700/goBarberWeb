@@ -54,10 +54,10 @@ Esta é uma aplicação web, onde o prestador de serviço da barbearia consulta 
 
 ## 📝 License
 
-Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE] (LICENSE) para obter detalhes.
+Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE](LICENSE) para obter detalhes.
 
 ---
-<p> Feito por Eduardo Freitas. :rocket: [Veja meu Linkedin](https://www.linkedin.com/in/edusf8700)</p>
+Feito por Eduardo Freitas. :rocket: [Veja meu Linkedin](https://www.linkedin.com/in/edusf8700)
 
 
 
