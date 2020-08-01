@@ -45,6 +45,11 @@ Esta é uma aplicação web, onde o prestador de serviço da barbearia consulta 
 4. ``yarn``
 5. ``yarn start``
 
+## 🔄 Link para o backend e mobile:
+
+- [BACKEND](https://github.com/edusf8700/backend-gobarber.git)
+- [MOBILE](https://github.com/edusf8700/goBarberMobile)
+
 
 ## 🧰  Ferramentas utilizadas
 - ⚛️ **ReactJs** - Biblioteca Javascript para criar interfaces de usuário.
